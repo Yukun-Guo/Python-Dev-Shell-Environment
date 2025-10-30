@@ -55,7 +55,7 @@ fhist, help
 ### 🐧 Ubuntu / Debian
 
 ```bash
-curl -fsSL https://yukun-guo.github.io/data/tools/install_dev_shell.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Yukun-Guo/Python-Dev-Shell-Environment/refs/heads/main/install_dev_shell.sh | bash
 ```
 
 Or manually execute:
@@ -79,7 +79,7 @@ fish
 ### 🍎 macOS
 
 ```bash
-curl -fsSL https://yukun-guo.github.io/data/tools/install_dev_shell.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Yukun-Guo/Python-Dev-Shell-Environment/refs/heads/main/install_dev_shell.sh | bash
 ```
 
 The system will automatically install:
