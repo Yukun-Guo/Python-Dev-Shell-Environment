@@ -16,6 +16,7 @@ if [[ "$OS_TYPE" == "Linux" || "$OS_TYPE" == "Darwin" ]]; then
     if [[ "$PLATFORM" == "ubuntu" ]]; then
         sudo apt update -y
         sudo apt install -y fish git fzf bat exa ripgrep unzip python3 python3-pip curl
+        EXA_CMD="exa"
     else
         # macOS
         if ! command -v brew >/dev/null 2>&1; then
@@ -23,7 +24,16 @@ if [[ "$OS_TYPE" == "Linux" || "$OS_TYPE" == "Darwin" ]]; then
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         fi
         brew tap homebrew/core --force
-        brew install fish git fzf bat eva ripgrep unzip python starship
+                # Detect if exa is available in brew (it was removed in 2023)
+        if brew search exa | grep -qx "exa"; then
+            echo "📦 Installing exa..."
+            brew install fish git fzf bat exa ripgrep unzip python starship
+            EXA_CMD="exa"
+        else
+            echo "⚠️ exa unavailable in Homebrew. Installing eva instead..."
+            brew install fish git fzf bat eva ripgrep unzip python starship
+            EXA_CMD="eva"
+        fi
     fi
 
     # Install Python packages
@@ -35,8 +45,8 @@ if [[ "$OS_TYPE" == "Linux" || "$OS_TYPE" == "Darwin" ]]; then
     cat > ~/.config/fish/config.fish <<'EOF'
 starship init fish | source
 
-alias ll="exa -alh --icons"
-alias la="exa -a --icons"
+alias ll="\$EXA_CMD -alh --icons"
+alias la="\$EXA_CMD -a --icons"
 alias cat="bat"
 alias py="uv run python"
 alias act="source .venv/bin/activate.fish"
