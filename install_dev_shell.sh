@@ -22,8 +22,8 @@ if [[ "$OS_TYPE" == "Linux" || "$OS_TYPE" == "Darwin" ]]; then
             echo "🍺 Installing Homebrew..."
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         fi
-        brew tap homebrew/core
-        brew install fish git fzf bat exa ripgrep unzip python starship
+        brew tap homebrew/core --force
+        brew install fish git fzf bat eva ripgrep unzip python starship
     fi
 
     # Install Python packages
