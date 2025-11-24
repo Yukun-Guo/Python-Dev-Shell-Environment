@@ -31,7 +31,7 @@ Includes common tools, command aliases, syntax highlighting, intelligent complet
 ✅ **Convenient command aliases:**
 You can view all shortcuts with:
 
-```bash
+``` bash
 help
 ```
 
@@ -54,22 +54,22 @@ fhist, help
 
 ### 🐧 Ubuntu / Debian
 
-```bash
+``` bash
 curl -fsSL https://raw.githubusercontent.com/Yukun-Guo/Python-Dev-Shell-Environment/refs/heads/main/install_dev_shell.sh | bash
 ```
 
 Or manually execute:
 
-```bash
+``` bash
 chmod +x install_dev_shell.sh
 ./install_dev_shell.sh
 ```
 
-> 📦 Dependencies will be automatically installed: fish, fzf, bat, exa, ripgrep, python3, pip, uv, starship
+> 📦 Depend encies will be automatically installed: fish, fzf, bat, exa, ripgrep, python3, pip, uv, starship
 
 After installation:
 
-```bash
+``` bash
 chsh -s /usr/bin/fish
 fish
 ```
@@ -78,7 +78,7 @@ fish
 
 ### 🍎 macOS
 
-```bash
+``` bash
 curl -fsSL https://raw.githubusercontent.com/Yukun-Guo/Python-Dev-Shell-Environment/refs/heads/main/install_dev_shell.sh | bash
 ```
 
@@ -90,7 +90,7 @@ The system will automatically install:
 
 After installation, restart the terminal or run:
 
-```bash
+``` bash
 fish
 ```
 
@@ -133,7 +133,7 @@ fish
 
 You can add your own aliases or functions in `config.fish` or PowerShell profile, for example:
 
-```bash
+``` bash
 # Add virtual environment indicator
 function show_venv
     if test -n "$VIRTUAL_ENV"
@@ -169,14 +169,14 @@ end
 
 ## 🧰 Uninstall
 
-```bash
+``` bash
 rm -rf ~/.config/fish
 brew uninstall fish fzf bat exa ripgrep starship
 pip uninstall uv ipython ruff
 ```
 
 Windows:
-```powershell
+``` powershell
 scoop uninstall fish fzf bat exa starship
 Remove-Item $PROFILE
 ```
